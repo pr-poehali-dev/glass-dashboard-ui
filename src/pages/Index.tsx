@@ -84,9 +84,7 @@ const Index = () => {
                 className="h-20 w-20 object-contain drop-shadow-lg"
               />
               <div>
-                <h1 className="text-3xl font-bold bg-gradient-to-r from-cyan-600 to-emerald-600 bg-clip-text text-transparent">
-                  ИИ ПАНЕЛЬ
-                </h1>
+                <h1 className="text-3xl font-bold bg-gradient-to-r from-cyan-600 to-emerald-600 bg-clip-text text-transparent">ИИ ПАНЕЛЬ АДМИНИСТРАЦИИ</h1>
                 <p className="text-cyan-700 font-medium mt-1">
                   Управления развития потребительского рынка и услуг
                 </p>
