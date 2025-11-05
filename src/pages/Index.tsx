@@ -87,6 +87,44 @@ const Index = () => {
           </div>
         </header>
 
+        <Card className="backdrop-blur-glass bg-gradient-to-br from-yellow-400/30 to-amber-400/30 border-2 border-yellow-400 rounded-3xl p-4 shadow-xl mb-4 animate-fade-in">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-3 bg-gradient-to-br from-yellow-500 to-amber-600 rounded-2xl animate-float">
+              <Icon name="Sparkles" className="text-white" size={28} />
+            </div>
+            <h3 className="text-xl font-bold text-amber-900">ИИ-Рекомендации по развитию</h3>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="p-4 bg-white/70 rounded-2xl border border-yellow-300">
+              <div className="flex items-start gap-3">
+                <Icon name="Store" className="text-cyan-600 flex-shrink-0" size={20} />
+                <div>
+                  <h4 className="font-bold text-cyan-900 mb-2">Торговля</h4>
+                  <p className="text-sm text-cyan-800">Расширить зоны электронной коммерции на 35%. Открыть 3 новых торговых центра в северном районе.</p>
+                </div>
+              </div>
+            </div>
+            <div className="p-4 bg-white/70 rounded-2xl border border-yellow-300">
+              <div className="flex items-start gap-3">
+                <Icon name="Wheat" className="text-emerald-600 flex-shrink-0" size={20} />
+                <div>
+                  <h4 className="font-bold text-emerald-900 mb-2">Агросектор</h4>
+                  <p className="text-sm text-emerald-800">Увеличить субсидии растениеводству на 20%. Внедрить цифровизацию животноводческих ферм.</p>
+                </div>
+              </div>
+            </div>
+            <div className="p-4 bg-white/70 rounded-2xl border border-yellow-300">
+              <div className="flex items-start gap-3">
+                <Icon name="Users" className="text-purple-600 flex-shrink-0" size={20} />
+                <div>
+                  <h4 className="font-bold text-purple-900 mb-2">Занятость</h4>
+                  <p className="text-sm text-purple-800">Легализовать теневой сектор через льготное налогообложение. Создать 450 рабочих мест.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Card>
+
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
           <Card className="backdrop-blur-glass bg-white/50 border border-white/60 rounded-3xl p-4 shadow-xl hover:shadow-2xl transition-all duration-300 animate-fade-in">
             <div className="flex items-center gap-3 mb-4">
@@ -269,44 +307,6 @@ const Index = () => {
                 />
               </LineChart>
             </ResponsiveContainer>
-          </Card>
-
-          <Card className="backdrop-blur-glass bg-gradient-to-br from-yellow-400/30 to-amber-400/30 border-2 border-yellow-400 rounded-3xl p-4 shadow-xl col-span-1 md:col-span-2 xl:col-span-3 animate-fade-in" style={{animationDelay: '0.6s'}}>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-3 bg-gradient-to-br from-yellow-500 to-amber-600 rounded-2xl animate-float">
-                <Icon name="Sparkles" className="text-white" size={28} />
-              </div>
-              <h3 className="text-xl font-bold text-amber-900">ИИ-Рекомендации по развитию</h3>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="p-4 bg-white/70 rounded-2xl border border-yellow-300">
-                <div className="flex items-start gap-3">
-                  <Icon name="Store" className="text-cyan-600 flex-shrink-0" size={20} />
-                  <div>
-                    <h4 className="font-bold text-cyan-900 mb-2">Торговля</h4>
-                    <p className="text-sm text-cyan-800">Расширить зоны электронной коммерции на 35%. Открыть 3 новых торговых центра в северном районе.</p>
-                  </div>
-                </div>
-              </div>
-              <div className="p-4 bg-white/70 rounded-2xl border border-yellow-300">
-                <div className="flex items-start gap-3">
-                  <Icon name="Wheat" className="text-emerald-600 flex-shrink-0" size={20} />
-                  <div>
-                    <h4 className="font-bold text-emerald-900 mb-2">Агросектор</h4>
-                    <p className="text-sm text-emerald-800">Увеличить субсидии растениеводству на 20%. Внедрить цифровизацию животноводческих ферм.</p>
-                  </div>
-                </div>
-              </div>
-              <div className="p-4 bg-white/70 rounded-2xl border border-yellow-300">
-                <div className="flex items-start gap-3">
-                  <Icon name="Users" className="text-purple-600 flex-shrink-0" size={20} />
-                  <div>
-                    <h4 className="font-bold text-purple-900 mb-2">Занятость</h4>
-                    <p className="text-sm text-purple-800">Легализовать теневой сектор через льготное налогообложение. Создать 450 рабочих мест.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
           </Card>
         </div>
       </div>
