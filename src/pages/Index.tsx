@@ -54,8 +54,8 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-blue-50 to-emerald-50 relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnoiIHN0cm9rZT0iIzBFQTVFOSIgc3Ryb2tlLXdpZHRoPSIuNSIgb3BhY2l0eT0iLjEiLz48L2c+PC9zdmc+')] opacity-30"></div>
       
-      <div className="container mx-auto p-6 relative z-10">
-        <header className="mb-8 backdrop-blur-glass bg-white/40 rounded-3xl p-6 border border-white/50 shadow-lg animate-fade-in">
+      <div className="container mx-auto p-3 relative z-10">
+        <header className="mb-4 backdrop-blur-glass bg-white/40 rounded-3xl p-4 border border-white/50 shadow-lg animate-fade-in">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-6">
               <img 
@@ -87,8 +87,8 @@ const Index = () => {
           </div>
         </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-          <Card className="backdrop-blur-glass bg-white/50 border border-white/60 rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 animate-fade-in">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
+          <Card className="backdrop-blur-glass bg-white/50 border border-white/60 rounded-3xl p-4 shadow-xl hover:shadow-2xl transition-all duration-300 animate-fade-in">
             <div className="flex items-center gap-3 mb-4">
               <div className="p-3 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-2xl">
                 <Icon name="Store" className="text-white" size={24} />
@@ -123,7 +123,7 @@ const Index = () => {
             </div>
           </Card>
 
-          <Card className="backdrop-blur-glass bg-white/50 border border-white/60 rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 animate-fade-in" style={{animationDelay: '0.1s'}}>
+          <Card className="backdrop-blur-glass bg-white/50 border border-white/60 rounded-3xl p-4 shadow-xl hover:shadow-2xl transition-all duration-300 animate-fade-in" style={{animationDelay: '0.1s'}}>
             <div className="flex items-center gap-3 mb-4">
               <div className="p-3 bg-gradient-to-br from-red-500 to-orange-500 rounded-2xl">
                 <Icon name="AlertTriangle" className="text-white" size={24} />
@@ -147,7 +147,7 @@ const Index = () => {
             </div>
           </Card>
 
-          <Card className="backdrop-blur-glass bg-white/50 border border-white/60 rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 animate-fade-in" style={{animationDelay: '0.2s'}}>
+          <Card className="backdrop-blur-glass bg-white/50 border border-white/60 rounded-3xl p-4 shadow-xl hover:shadow-2xl transition-all duration-300 animate-fade-in" style={{animationDelay: '0.2s'}}>
             <div className="flex items-center gap-3 mb-4">
               <div className="p-3 bg-gradient-to-br from-emerald-500 to-green-600 rounded-2xl">
                 <Icon name="Wheat" className="text-white" size={24} />
@@ -173,7 +173,7 @@ const Index = () => {
             </ResponsiveContainer>
           </Card>
 
-          <Card className="backdrop-blur-glass bg-white/50 border border-white/60 rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 col-span-1 md:col-span-2 animate-fade-in" style={{animationDelay: '0.3s'}}>
+          <Card className="backdrop-blur-glass bg-white/50 border border-white/60 rounded-3xl p-4 shadow-xl hover:shadow-2xl transition-all duration-300 col-span-1 md:col-span-2 animate-fade-in" style={{animationDelay: '0.3s'}}>
             <div className="flex items-center gap-3 mb-4">
               <div className="p-3 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl">
                 <Icon name="TrendingUp" className="text-white" size={24} />
@@ -210,7 +210,7 @@ const Index = () => {
             </div>
           </Card>
 
-          <Card className="backdrop-blur-glass bg-white/50 border border-white/60 rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 animate-fade-in" style={{animationDelay: '0.4s'}}>
+          <Card className="backdrop-blur-glass bg-white/50 border border-white/60 rounded-3xl p-4 shadow-xl hover:shadow-2xl transition-all duration-300 animate-fade-in" style={{animationDelay: '0.4s'}}>
             <div className="flex items-center gap-3 mb-4">
               <div className="p-3 bg-gradient-to-br from-orange-500 to-amber-600 rounded-2xl">
                 <Icon name="Users" className="text-white" size={24} />
@@ -236,7 +236,7 @@ const Index = () => {
             </div>
           </Card>
 
-          <Card className="backdrop-blur-glass bg-white/50 border border-white/60 rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 col-span-1 md:col-span-2 xl:col-span-3 animate-fade-in" style={{animationDelay: '0.5s'}}>
+          <Card className="backdrop-blur-glass bg-white/50 border border-white/60 rounded-3xl p-4 shadow-xl hover:shadow-2xl transition-all duration-300 col-span-1 md:col-span-2 xl:col-span-3 animate-fade-in" style={{animationDelay: '0.5s'}}>
             <div className="flex items-center gap-3 mb-4">
               <div className="p-3 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl">
                 <Icon name="LineChart" className="text-white" size={24} />
@@ -271,7 +271,7 @@ const Index = () => {
             </ResponsiveContainer>
           </Card>
 
-          <Card className="backdrop-blur-glass bg-gradient-to-br from-yellow-400/30 to-amber-400/30 border-2 border-yellow-400 rounded-3xl p-6 shadow-xl col-span-1 md:col-span-2 xl:col-span-3 animate-fade-in" style={{animationDelay: '0.6s'}}>
+          <Card className="backdrop-blur-glass bg-gradient-to-br from-yellow-400/30 to-amber-400/30 border-2 border-yellow-400 rounded-3xl p-4 shadow-xl col-span-1 md:col-span-2 xl:col-span-3 animate-fade-in" style={{animationDelay: '0.6s'}}>
             <div className="flex items-center gap-3 mb-4">
               <div className="p-3 bg-gradient-to-br from-yellow-500 to-amber-600 rounded-2xl animate-float">
                 <Icon name="Sparkles" className="text-white" size={28} />
