@@ -72,11 +72,17 @@ const Index = () => {
   ];
 
   const investmentData = [
-    { project: 'Логистический центр', investment: 250, jobs: 120 },
-    { project: 'Торговый комплекс', investment: 180, jobs: 85 },
-    { project: 'Производство', investment: 320, jobs: 200 },
-    { project: 'Сервисный центр', investment: 150, jobs: 60 },
-    { project: 'Агрокомплекс', investment: 280, jobs: 95 }
+    { project: 'Логистический центр', investment: 250, jobs: 120, icon: 'Truck', status: 'active' },
+    { project: 'Торговый комплекс', investment: 180, jobs: 85, icon: 'ShoppingBag', status: 'active' },
+    { project: 'Производство', investment: 320, jobs: 200, icon: 'Factory', status: 'active' },
+    { project: 'Сервисный центр', investment: 150, jobs: 60, icon: 'Wrench', status: 'active' },
+    { project: 'Агрокомплекс', investment: 280, jobs: 95, icon: 'Tractor', status: 'active' }
+  ];
+
+  const investmentForecast = [
+    { project: 'Технопарк', investment: 380, jobs: 250, icon: 'Lightbulb', status: 'forecast', decision: 'При одобрении бюджета' },
+    { project: 'Рекреационный центр', investment: 220, jobs: 140, icon: 'Palmtree', status: 'forecast', decision: 'При привлечении инвестора' },
+    { project: 'Логистика 2.0', investment: 290, jobs: 110, icon: 'PackageOpen', status: 'forecast', decision: 'При расширении фазы 1' }
   ];
 
   const employmentData = [
@@ -212,8 +218,8 @@ const Index = () => {
               </div>
               <h3 className="text-lg font-bold text-cyan-900">Инвестиционные проекты</h3>
             </div>
-            <ResponsiveContainer width="100%" height={250}>
-              <ScatterChart>
+            <ResponsiveContainer width="100%" height={280}>
+              <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e0f2fe" />
                 <XAxis 
                   type="number" 
@@ -221,24 +227,113 @@ const Index = () => {
                   name="Инвестиции" 
                   unit=" млн ₽"
                   stroke="#0e7490"
+                  domain={[100, 400]}
                 />
                 <YAxis 
                   type="number" 
                   dataKey="jobs" 
                   name="Рабочие места" 
                   stroke="#0e7490"
+                  domain={[0, 280]}
                 />
-                <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-                <Scatter name="Проекты" data={investmentData} fill="#8B5CF6" />
+                <Tooltip 
+                  cursor={{ strokeDasharray: '3 3' }}
+                  content={({ payload }) => {
+                    if (payload && payload.length > 0) {
+                      const data = payload[0].payload;
+                      return (
+                        <div className="bg-white/90 backdrop-blur-sm p-3 rounded-xl border-2 border-purple-300 shadow-lg">
+                          <p className="font-bold text-purple-900 mb-1">{data.project}</p>
+                          <p className="text-sm text-cyan-800">Инвестиции: {data.investment} млн ₽</p>
+                          <p className="text-sm text-cyan-800">Рабочих мест: {data.jobs}</p>
+                          {data.decision && (
+                            <p className="text-xs text-amber-700 mt-1 font-medium">{data.decision}</p>
+                          )}
+                        </div>
+                      );
+                    }
+                    return null;
+                  }}
+                />
+                <Scatter 
+                  name="Действующие" 
+                  data={investmentData} 
+                  fill="#8B5CF6"
+                  shape={(props: any) => {
+                    const { cx, cy, payload } = props;
+                    return (
+                      <g>
+                        <circle cx={cx} cy={cy} r={8} fill="#8B5CF6" stroke="#6D28D9" strokeWidth={2} />
+                        <text x={cx} y={cy - 15} textAnchor="middle" fill="#6D28D9" fontSize="20">
+                          {payload.icon === 'Truck' && '🚚'}
+                          {payload.icon === 'ShoppingBag' && '🛍️'}
+                          {payload.icon === 'Factory' && '🏭'}
+                          {payload.icon === 'Wrench' && '🔧'}
+                          {payload.icon === 'Tractor' && '🚜'}
+                        </text>
+                      </g>
+                    );
+                  }}
+                />
+                <Scatter 
+                  name="Прогноз" 
+                  data={investmentForecast} 
+                  fill="#FCD34D"
+                  shape={(props: any) => {
+                    const { cx, cy, payload } = props;
+                    return (
+                      <g>
+                        <circle 
+                          cx={cx} 
+                          cy={cy} 
+                          r={8} 
+                          fill="#FCD34D" 
+                          stroke="#F59E0B" 
+                          strokeWidth={2}
+                          strokeDasharray="4 2"
+                          opacity={0.7}
+                        />
+                        <text x={cx} y={cy - 15} textAnchor="middle" fill="#F59E0B" fontSize="18" opacity="0.8">
+                          {payload.icon === 'Lightbulb' && '💡'}
+                          {payload.icon === 'Palmtree' && '🌴'}
+                          {payload.icon === 'PackageOpen' && '📦'}
+                        </text>
+                      </g>
+                    );
+                  }}
+                />
               </ScatterChart>
             </ResponsiveContainer>
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-2 mt-4">
-              {investmentData.map((project, idx) => (
-                <div key={idx} className="p-2 bg-purple-50 rounded-lg border border-purple-200 text-center">
-                  <p className="text-xs text-purple-900 font-medium truncate">{project.project}</p>
-                  <p className="text-lg font-bold text-purple-700">{project.investment}M</p>
+            <div className="space-y-2 mt-4">
+              <div className="flex items-center gap-2 text-xs text-cyan-800">
+                <div className="flex items-center gap-1">
+                  <div className="w-3 h-3 rounded-full bg-purple-600"></div>
+                  <span>Действующие проекты</span>
                 </div>
-              ))}
+                <div className="flex items-center gap-1">
+                  <div className="w-3 h-3 rounded-full bg-yellow-400 border-2 border-yellow-600" style={{borderStyle: 'dashed'}}></div>
+                  <span>Прогноз при решении</span>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+                {[...investmentData, ...investmentForecast].map((project, idx) => (
+                  <div 
+                    key={idx} 
+                    className={`p-2 rounded-lg border text-center ${
+                      project.status === 'forecast' 
+                        ? 'bg-yellow-50 border-yellow-300 border-dashed' 
+                        : 'bg-purple-50 border-purple-200'
+                    }`}
+                  >
+                    <p className="text-xs font-medium truncate" style={{color: project.status === 'forecast' ? '#F59E0B' : '#7C3AED'}}>
+                      {project.project}
+                    </p>
+                    <p className="text-sm font-bold" style={{color: project.status === 'forecast' ? '#F59E0B' : '#7C3AED'}}>
+                      {project.investment}M
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </Card>
 
