@@ -108,7 +108,7 @@ const Index = () => {
             <div className="p-3 bg-gradient-to-br from-yellow-500 to-amber-600 rounded-2xl animate-float">
               <Icon name="Sparkles" className="text-white" size={28} />
             </div>
-            <h3 className="text-xl font-bold text-amber-900">ИИ-Рекомендации по развитию</h3>
+            <h3 className="font-bold text-amber-900 text-4xl">ИИ-Рекомендации по развитию</h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="p-4 bg-white/70 rounded-2xl border border-yellow-300">
