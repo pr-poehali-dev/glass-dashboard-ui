@@ -5,19 +5,39 @@ import { Badge } from "@/components/ui/badge";
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ScatterChart, Scatter, LineChart, Line } from 'recharts';
 
 const Index = () => {
-  const tradeData = [
-    { name: 'Розничная торговля', value: 45 },
-    { name: 'Опт', value: 30 },
-    { name: 'Электронная коммерция', value: 25 }
+  const citizenAppeals = [
+    { text: 'Отопление', size: 48, weight: 900, color: '#0EA5E9' },
+    { text: 'Дороги', size: 32, weight: 700, color: '#10B981' },
+    { text: 'Благоустройство', size: 28, weight: 600, color: '#8B5CF6' },
+    { text: 'ЖКХ', size: 36, weight: 700, color: '#F97316' },
+    { text: 'Освещение', size: 24, weight: 600, color: '#0EA5E9' },
+    { text: 'Парковки', size: 20, weight: 500, color: '#10B981' },
+    { text: 'Детские площадки', size: 22, weight: 500, color: '#8B5CF6' },
+    { text: 'Вывоз мусора', size: 26, weight: 600, color: '#F97316' },
+    { text: 'Транспорт', size: 30, weight: 700, color: '#0EA5E9' },
+    { text: 'Магазины', size: 18, weight: 500, color: '#10B981' },
+    { text: 'Водоснабжение', size: 24, weight: 600, color: '#8B5CF6' }
   ];
 
-  const violationsData = [
-    { month: 'Янв', count: 12 },
-    { month: 'Фев', count: 19 },
-    { month: 'Мар', count: 15 },
-    { month: 'Апр', count: 8 },
-    { month: 'Май', count: 6 },
-    { month: 'Июн', count: 10 }
+  const headTasks = [
+    {
+      task: 'Решить проблему отопления в МКД по ул. Ленина 15',
+      deadline: '07.11.2025',
+      aiTip: 'Провести срочное совещание с представителями УК. Проверить техническое состояние котельной.',
+      priority: 'high'
+    },
+    {
+      task: 'Подготовить отчет по инвестпроектам за Q3',
+      deadline: '10.11.2025',
+      aiTip: 'Использовать данные из раздела "Инвестиционные проекты". Акцент на создание рабочих мест.',
+      priority: 'medium'
+    },
+    {
+      task: 'Организовать проверку торговых точек',
+      deadline: '12.11.2025',
+      aiTip: 'Координация с отделом торговли. Приоритет - объекты с жалобами граждан.',
+      priority: 'medium'
+    }
   ];
 
   const agricultureData = [
@@ -126,92 +146,7 @@ const Index = () => {
         </Card>
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
-          <Card className="backdrop-blur-glass bg-white/50 border border-white/60 rounded-3xl p-4 shadow-xl hover:shadow-2xl transition-all duration-300 animate-fade-in">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-3 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-2xl">
-                <Icon name="Store" className="text-white" size={24} />
-              </div>
-              <h3 className="text-lg font-bold text-cyan-900">Координация торговли</h3>
-            </div>
-            <ResponsiveContainer width="100%" height={200}>
-              <PieChart>
-                <Pie
-                  data={tradeData}
-                  cx="50%"
-                  cy="50%"
-                  innerRadius={50}
-                  outerRadius={80}
-                  paddingAngle={5}
-                  dataKey="value"
-                >
-                  {tradeData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                  ))}
-                </Pie>
-                <Tooltip />
-              </PieChart>
-            </ResponsiveContainer>
-            <div className="mt-4 space-y-2">
-              {tradeData.map((item, idx) => (
-                <div key={idx} className="flex items-center justify-between text-sm">
-                  <span className="text-cyan-800">{item.name}</span>
-                  <Badge variant="secondary" className="bg-white/80">{item.value}%</Badge>
-                </div>
-              ))}
-            </div>
-          </Card>
-
-          <Card className="backdrop-blur-glass bg-white/50 border border-white/60 rounded-3xl p-4 shadow-xl hover:shadow-2xl transition-all duration-300 animate-fade-in" style={{animationDelay: '0.1s'}}>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-3 bg-gradient-to-br from-red-500 to-orange-500 rounded-2xl">
-                <Icon name="AlertTriangle" className="text-white" size={24} />
-              </div>
-              <h3 className="text-lg font-bold text-cyan-900">Выявление нарушений</h3>
-            </div>
-            <ResponsiveContainer width="100%" height={200}>
-              <BarChart data={violationsData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#e0f2fe" />
-                <XAxis dataKey="month" stroke="#0e7490" />
-                <YAxis stroke="#0e7490" />
-                <Tooltip />
-                <Bar dataKey="count" fill="#10B981" radius={[10, 10, 0, 0]} />
-              </BarChart>
-            </ResponsiveContainer>
-            <div className="mt-4 p-3 bg-emerald-50 rounded-xl border border-emerald-200">
-              <p className="text-sm text-emerald-800">
-                <Icon name="TrendingDown" className="inline mr-2" size={16} />
-                <span className="font-semibold">-40%</span> за последние 3 месяца
-              </p>
-            </div>
-          </Card>
-
-          <Card className="backdrop-blur-glass bg-white/50 border border-white/60 rounded-3xl p-4 shadow-xl hover:shadow-2xl transition-all duration-300 animate-fade-in" style={{animationDelay: '0.2s'}}>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-3 bg-gradient-to-br from-emerald-500 to-green-600 rounded-2xl">
-                <Icon name="Wheat" className="text-white" size={24} />
-              </div>
-              <h3 className="text-lg font-bold text-cyan-900">Сельское хозяйство</h3>
-            </div>
-            <ResponsiveContainer width="100%" height={200}>
-              <PieChart>
-                <Pie
-                  data={agricultureData}
-                  cx="50%"
-                  cy="50%"
-                  outerRadius={80}
-                  dataKey="value"
-                  label
-                >
-                  {agricultureData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                  ))}
-                </Pie>
-                <Tooltip />
-              </PieChart>
-            </ResponsiveContainer>
-          </Card>
-
-          <Card className="backdrop-blur-glass bg-white/50 border border-white/60 rounded-3xl p-4 shadow-xl hover:shadow-2xl transition-all duration-300 col-span-1 md:col-span-2 animate-fade-in" style={{animationDelay: '0.3s'}}>
+          <Card className="backdrop-blur-glass bg-white/50 border border-white/60 rounded-3xl p-4 shadow-xl hover:shadow-2xl transition-all duration-300 col-span-1 md:col-span-2 animate-fade-in">
             <div className="flex items-center gap-3 mb-4">
               <div className="p-3 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl">
                 <Icon name="TrendingUp" className="text-white" size={24} />
@@ -248,6 +183,92 @@ const Index = () => {
             </div>
           </Card>
 
+          <Card className="backdrop-blur-glass bg-white/50 border border-white/60 rounded-3xl p-4 shadow-xl hover:shadow-2xl transition-all duration-300 animate-fade-in" style={{animationDelay: '0.1s'}}>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-3 bg-gradient-to-br from-emerald-500 to-green-600 rounded-2xl">
+                <Icon name="Wheat" className="text-white" size={24} />
+              </div>
+              <h3 className="text-lg font-bold text-cyan-900">Сельское хозяйство</h3>
+            </div>
+            <ResponsiveContainer width="100%" height={200}>
+              <PieChart>
+                <Pie
+                  data={agricultureData}
+                  cx="50%"
+                  cy="50%"
+                  outerRadius={80}
+                  dataKey="value"
+                  label
+                >
+                  {agricultureData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                  ))}
+                </Pie>
+                <Tooltip />
+              </PieChart>
+            </ResponsiveContainer>
+          </Card>
+
+          <Card className="backdrop-blur-glass bg-white/50 border border-white/60 rounded-3xl p-4 shadow-xl hover:shadow-2xl transition-all duration-300 animate-fade-in" style={{animationDelay: '0.2s'}}>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-3 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl">
+                <Icon name="MessageSquare" className="text-white" size={24} />
+              </div>
+              <h3 className="text-lg font-bold text-cyan-900">Обращения граждан</h3>
+            </div>
+            <div className="relative h-[300px] flex items-center justify-center">
+              <div className="absolute inset-0 flex flex-wrap items-center justify-center gap-3 p-4">
+                {citizenAppeals.map((appeal, idx) => (
+                  <span
+                    key={idx}
+                    style={{
+                      fontSize: `${appeal.size}px`,
+                      fontWeight: appeal.weight,
+                      color: appeal.color,
+                      lineHeight: '1.2'
+                    }}
+                    className="hover:scale-110 transition-transform cursor-pointer"
+                  >
+                    {appeal.text}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="mt-4 p-3 bg-cyan-50 rounded-xl border border-cyan-200">
+              <p className="text-sm text-cyan-800">
+                <Icon name="TrendingUp" className="inline mr-2" size={16} />
+                Всего обращений: <span className="font-bold">1847</span> за месяц
+              </p>
+            </div>
+          </Card>
+
+          <Card className="backdrop-blur-glass bg-white/50 border border-white/60 rounded-3xl p-4 shadow-xl hover:shadow-2xl transition-all duration-300 animate-fade-in" style={{animationDelay: '0.3s'}}>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-3 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl">
+                <Icon name="ClipboardList" className="text-white" size={24} />
+              </div>
+              <h3 className="text-lg font-bold text-cyan-900">Поручения главы</h3>
+            </div>
+            <div className="space-y-3">
+              {headTasks.map((task, idx) => (
+                <div key={idx} className={`p-3 rounded-2xl border-2 ${
+                  task.priority === 'high' 
+                    ? 'bg-red-50 border-red-300' 
+                    : 'bg-blue-50 border-blue-300'
+                }`}>
+                  <div className="flex items-start justify-between gap-2 mb-2">
+                    <p className="text-sm font-bold text-cyan-900 flex-1">{task.task}</p>
+                    <Badge variant="outline" className="text-xs">{task.deadline}</Badge>
+                  </div>
+                  <div className="flex items-start gap-2 mt-2 p-2 bg-white/60 rounded-lg">
+                    <Icon name="Lightbulb" className="text-amber-600 flex-shrink-0 mt-0.5" size={16} />
+                    <p className="text-xs text-cyan-800">{task.aiTip}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Card>
+
           <Card className="backdrop-blur-glass bg-white/50 border border-white/60 rounded-3xl p-4 shadow-xl hover:shadow-2xl transition-all duration-300 animate-fade-in" style={{animationDelay: '0.4s'}}>
             <div className="flex items-center gap-3 mb-4">
               <div className="p-3 bg-gradient-to-br from-orange-500 to-amber-600 rounded-2xl">
@@ -274,7 +295,7 @@ const Index = () => {
             </div>
           </Card>
 
-          <Card className="backdrop-blur-glass bg-white/50 border border-white/60 rounded-3xl p-4 shadow-xl hover:shadow-2xl transition-all duration-300 col-span-1 md:col-span-2 xl:col-span-3 animate-fade-in" style={{animationDelay: '0.5s'}}>
+          <Card className="backdrop-blur-glass bg-white/50 border border-white/60 rounded-3xl p-4 shadow-xl hover:shadow-2xl transition-all duration-300 col-span-1 md:col-span-2 xl:col-span-3 animate-fade-in" style={{animationDelay: '0.6s'}}>
             <div className="flex items-center gap-3 mb-4">
               <div className="p-3 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl">
                 <Icon name="LineChart" className="text-white" size={24} />
