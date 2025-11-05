@@ -40,10 +40,35 @@ const Index = () => {
     }
   ];
 
-  const agricultureData = [
-    { name: 'Растениеводство', value: 40 },
-    { name: 'Животноводство', value: 35 },
-    { name: 'Бытовые услуги', value: 25 }
+  const governmentPrograms = [
+    {
+      event: 'Модернизация торговых площадей',
+      effect: '+35% товарооборота',
+      cost: '12.5 млн ₽',
+      program: 'Развитие торговли',
+      color: '#0EA5E9'
+    },
+    {
+      event: 'Цифровизация агросектора',
+      effect: '+20% эффективности',
+      cost: '8.3 млн ₽',
+      program: 'Цифровая экономика',
+      color: '#10B981'
+    },
+    {
+      event: 'Поддержка МСП в сфере услуг',
+      effect: '450 новых рабочих мест',
+      cost: '15.7 млн ₽',
+      program: 'Малый бизнес',
+      color: '#8B5CF6'
+    },
+    {
+      event: 'Программа благоустройства',
+      effect: '12 новых детских площадок',
+      cost: '6.2 млн ₽',
+      program: 'Комфортная среда',
+      color: '#F97316'
+    }
   ];
 
   const investmentData = [
@@ -219,28 +244,31 @@ const Index = () => {
 
           <Card className="backdrop-blur-glass bg-white/50 border border-white/60 rounded-3xl p-4 shadow-xl hover:shadow-2xl transition-all duration-300 animate-fade-in" style={{animationDelay: '0.1s'}}>
             <div className="flex items-center gap-3 mb-4">
-              <div className="p-3 bg-gradient-to-br from-emerald-500 to-green-600 rounded-2xl">
-                <Icon name="Wheat" className="text-white" size={24} />
+              <div className="p-3 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl">
+                <Icon name="FileText" className="text-white" size={24} />
               </div>
-              <h3 className="text-lg font-bold text-cyan-900">Сельское хозяйство</h3>
+              <h3 className="text-lg font-bold text-cyan-900">Связь с Госпрограммами</h3>
             </div>
-            <ResponsiveContainer width="100%" height={200}>
-              <PieChart>
-                <Pie
-                  data={agricultureData}
-                  cx="50%"
-                  cy="50%"
-                  outerRadius={80}
-                  dataKey="value"
-                  label
-                >
-                  {agricultureData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                  ))}
-                </Pie>
-                <Tooltip />
-              </PieChart>
-            </ResponsiveContainer>
+            <div className="space-y-3">
+              {governmentPrograms.map((item, idx) => (
+                <div key={idx} className="p-3 bg-white/70 rounded-2xl border-l-4 hover:scale-[1.02] transition-transform" style={{borderColor: item.color}}>
+                  <div className="flex items-start justify-between gap-2 mb-2">
+                    <h4 className="text-sm font-bold text-cyan-900 flex-1">{item.event}</h4>
+                    <Badge variant="secondary" className="text-xs bg-purple-50 text-purple-700">{item.cost}</Badge>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2 text-xs">
+                    <div className="flex items-center gap-1">
+                      <Icon name="Target" size={14} className="text-emerald-600" />
+                      <span className="text-cyan-800">{item.effect}</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Icon name="BookOpen" size={14} className="text-indigo-600" />
+                      <span className="text-cyan-800 font-medium">{item.program}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </Card>
 
           <Card className="backdrop-blur-glass bg-white/50 border border-white/60 rounded-3xl p-4 shadow-xl hover:shadow-2xl transition-all duration-300 animate-fade-in" style={{animationDelay: '0.2s'}}>
