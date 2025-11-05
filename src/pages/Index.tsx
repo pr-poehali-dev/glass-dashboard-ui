@@ -68,6 +68,19 @@ const Index = () => {
     { quarter: 'Q4', actual: null, forecast: 3400 }
   ];
 
+  const liveComments = [
+    { source: 'Telegram', text: 'Когда уже починят отопление на Ленина? Третий день мерзнем!', author: 'Мария К.' },
+    { source: 'VK', text: 'Спасибо администрации за быстрый ремонт дороги на Можайском шоссе 👍', author: 'Сергей П.' },
+    { source: 'Обращение', text: 'Просьба установить детскую площадку в микрорайоне Новый', author: 'Анна С.' },
+    { source: 'Telegram', text: 'В магазине на Советской продают просрочку. Нужна проверка!', author: 'Иван М.' },
+    { source: 'VK', text: 'Отличная идея с новым торговым центром! Когда откроется?', author: 'Елена Р.' },
+    { source: 'Instagram', text: 'Парковки у школы №3 катастрофически не хватает утром', author: 'Дмитрий Л.' },
+    { source: 'Обращение', text: 'Благодарю за оперативное решение вопроса с вывозом мусора!', author: 'Ольга В.' },
+    { source: 'Telegram', text: 'На улице Центральной не работает освещение уже неделю', author: 'Алексей Н.' },
+    { source: 'VK', text: 'Когда запустят новый автобусный маршрут до промзоны?', author: 'Николай Г.' },
+    { source: 'Instagram', text: 'Ярмарка выходного дня - супер! Больше таких мероприятий 🎉', author: 'Татьяна И.' }
+  ];
+
   const COLORS = ['#0EA5E9', '#10B981', '#FCD34D', '#8B5CF6', '#F97316'];
 
   return (
@@ -102,6 +115,31 @@ const Index = () => {
             </div>
           </div>
         </header>
+
+        <div className="mb-4 backdrop-blur-glass bg-white/40 rounded-3xl p-3 border border-white/50 shadow-lg overflow-hidden animate-fade-in">
+          <div className="flex items-center gap-3 mb-2">
+            <Icon name="Radio" className="text-cyan-600" size={20} />
+            <h3 className="text-sm font-bold text-cyan-900">Прямой эфир: мнения граждан</h3>
+          </div>
+          <div className="relative overflow-hidden">
+            <div className="flex gap-6 animate-marquee whitespace-nowrap">
+              {liveComments.map((comment, idx) => (
+                <div key={idx} className="inline-flex items-center gap-3 bg-white/60 rounded-2xl px-4 py-2 border border-cyan-200">
+                  <Badge variant="outline" className="bg-cyan-50 text-cyan-700 text-xs">{comment.source}</Badge>
+                  <span className="text-sm text-cyan-900 font-medium">{comment.author}:</span>
+                  <span className="text-sm text-cyan-800">{comment.text}</span>
+                </div>
+              ))}
+              {liveComments.map((comment, idx) => (
+                <div key={`dup-${idx}`} className="inline-flex items-center gap-3 bg-white/60 rounded-2xl px-4 py-2 border border-cyan-200">
+                  <Badge variant="outline" className="bg-cyan-50 text-cyan-700 text-xs">{comment.source}</Badge>
+                  <span className="text-sm text-cyan-900 font-medium">{comment.author}:</span>
+                  <span className="text-sm text-cyan-800">{comment.text}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
 
         <Card className="backdrop-blur-glass bg-gradient-to-br from-yellow-400/30 to-amber-400/30 border-2 border-yellow-400 rounded-3xl p-4 shadow-xl mb-4 animate-fade-in">
           <div className="flex items-center gap-3 mb-4">
